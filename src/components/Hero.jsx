@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import '../styles/Hero.css';
+
 const HeroSection = () => {
   return (
     <main className="hero container">
@@ -5,29 +8,33 @@ const HeroSection = () => {
         <h1>YOUR FEET DESERVE THE BEST</h1>
 
         <p>
-          YOUR FEET DESERVE THE BEST AND WE’RE HERE TO HELP YOU WITH OUR
-          SHOES.YOUR FEET DESERVE THE BEST AND WE’RE HERE TO HELP YOU WITH OUR
+          YOUR FEET DESERVE THE BEST AND WE&apos;RE HERE TO HELP YOU WITH OUR
+          SHOES. YOUR FEET DESERVE THE BEST AND WE&apos;RE HERE TO HELP YOU WITH OUR
           SHOES.
         </p>
 
         <div className="hero-btn">
-          <button>Shop Now</button>
-          <button className="secondary-btn">Category</button>
+          <Link to="/shop" className="btn btn-primary">Shop Now</Link>
+          <div className="category-dropdown">
+            <button className="btn btn-secondary">Category</button>
+            <div className="dropdown-menu">
+              <Link to="/category/running">Running</Link>
+              <Link to="/category/casual">Casual</Link>
+            </div>
+          </div>
         </div>
 
         <div className="Shopping">
-            <p>Also Available On</p>
+          <p>Also Available On</p>
         </div>
 
         <div className="brand-icons">
-            <img src="/images/amazon.png" alt="amazon"/>
-            <img src="/images/flipkart.png" alt="flipkart"/>
-
+          <img src="/images/amazon.png" alt="amazon" />
+          <img src="/images/flipkart.png" alt="flipkart" />
         </div>
-
       </div>
       <div className="hero-image">
-      <img src="/images/shoe_image.png" alt="shoe"/>
+        <img src="/images/shoe_image.png" alt="shoe" />
       </div>
     </main>
   );

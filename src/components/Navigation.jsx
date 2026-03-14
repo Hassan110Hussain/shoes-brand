@@ -1,18 +1,54 @@
+import { Link, useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
+import '../styles/Navigation.css';
+
 const Navigation = () => {
-    return (
-      <nav className="container">
-        <div className="logo">
-          <img src="/images/brand_logo.png" alt="logo" />
-        </div>
-        <ul>
-          <li href="#">Menu</li>
-          <li href="#">Location</li>
-          <li href="#">About</li>
-          <li href="#">Contact</li>
-        </ul>
-        <button>Login</button>
-      </nav>
-    );
+  const { getTotalItems } = useCart();
+  const { isAuthenticated, user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
   };
 
-  export default Navigation;
+  return (
+    <nav className="navbar">
+      <div className="container">
+        <Link to="/" className="logo">
+          <img src="/images/brand_logo.png" alt="logo" />
+        </Link>
+
+        <ul className="nav-menu">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/shop">Shop</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+        </ul>
+
+        <div className="nav-actions">
+          <Link to="/cart" className="cart-link">
+            Cart
+            {getTotalItems() > 0 && <span className="cart-count">{getTotalItems()}</span>}
+          </Link>
+
+          {isAuthenticated ? (
+            <div className="user-menu">
+              <span className="user-name">{user?.name}</span>
+              <Link to="/account" className="account-link">Account</Link>
+              <button className="logout-btn" onClick={handleLogout}>Logout</button>
+            </div>
+          ) : (
+            <div className="auth-links">
+              <Link to="/login" className="login-link">Login</Link>
+              <Link to="/register" className="register-link">Register</Link>
+            </div>
+          )}
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navigation;

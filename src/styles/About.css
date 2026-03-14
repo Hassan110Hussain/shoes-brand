@@ -1,0 +1,162 @@
+.about-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about-hero {
+  background: linear-gradient(135deg, var(--red) 0%, #b01620 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 40px 0;
+}
+
+.about-hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.about-hero p {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.about-content {
+  padding: 40px 0;
+}
+
+.about-section {
+  margin-bottom: 50px;
+}
+
+.about-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--gray);
+  font-weight: 700;
+}
+
+.about-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--gray);
+  margin-bottom: 15px;
+}
+
+.about-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-section li {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--gray);
+  padding: 10px 0;
+  padding-left: 30px;
+  position: relative;
+}
+
+.about-section li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--red);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.value-card {
+  background-color: var(--light-gray);
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.value-card:hover {
+  border-color: var(--red);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.value-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.value-card p {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 40px 20px;
+  }
+
+  .about-hero h1 {
+    font-size: 36px;
+  }
+
+  .about-hero p {
+    font-size: 16px;
+  }
+
+  .about-section h2 {
+    font-size: 24px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-container {
+    padding: 0 10px;
+  }
+
+  .about-hero {
+    padding: 30px 15px;
+    margin: 20px 0;
+  }
+
+  .about-hero h1 {
+    font-size: 28px;
+  }
+
+  .about-hero p {
+    font-size: 14px;
+  }
+
+  .about-content {
+    padding: 20px 0;
+  }
+
+  .about-section {
+    margin-bottom: 30px;
+  }
+
+  .about-section h2 {
+    font-size: 20px;
+  }
+
+  .about-section p,
+  .about-section li {
+    font-size: 14px;
+  }
+}
